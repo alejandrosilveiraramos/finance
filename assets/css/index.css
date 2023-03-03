@@ -29,31 +29,33 @@ main {
   height: 100vh;
 }
 /* First Section --Start */
-section.first-container {
-  /* background-color: yellow; */
-  width: 100%;
-  height: 20%;
-
-  display: flex;
-  justify-content: space-between;
-
-  margin-top: 1rem;
+section.first-container h2 {
+  font-weight: 400;
 }
 section.first-container div {
-  margin: 0rem 2rem;
-  background-color: #f5f5f5;
-  width: 30%;
-  height: 80%;
+  display: flex;
+  flex-direction: row;
 
-  border-radius: 0.4rem;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.75);
-  transition: 1s;
+  justify-content: center;
+
+  flex-wrap: wrap;
+  width: 100%;
 }
-section.first-container div:hover {
-  background-color: #f5f5f5;
-  width: 35%;
-  height: 85%;
+section.first-container div div {
+  display: flex;
 
+  justify-content: space-between;
+
+  width: 200px;
+  height: 100px;
+  border-radius: 0.4rem;
+  margin: 1rem;
+  background-color: #f5f5f5;
+  padding: 0.5rem;
+}
+section.first-container div div:hover {
+  background-color: #f5f5f5;
+  transform: scale(1.093);
   border-radius: 0.4rem;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.75);
 }
@@ -61,31 +63,133 @@ section.first-container div:hover {
 /* First Section --End */
 /* Second Seciton --Start */
 section.second-container {
-  background-color: #f5f5f5;
-
   width: 80%;
-  height: 50%;
 
   display: flex;
-  align-items: center;
+  flex-wrap: wrap-reverse;
+  align-content: center;
   justify-content: center;
 
+  padding: 1rem 0rem;
   border-radius: 0.4rem;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.75);
 }
 
 /* Table --Start */
-section.second-container table {
+section.second-container div.table-wrapper {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+
+  /* background-color: yellow; */
+}
+
+section.second-container div.table-wrapper table {
+  width: 100%;
+  height: 20%;
+  margin: 0.5rem;
   text-align: justify;
-  background-color: red;
-  width: 70%;
-  height: 70%;
-  border: 1px solid #000;
+  border-spacing: 0rem 0.3rem;
+  overflow: hidden;
 }
-td {
-  padding: 10px;
+
+section.second-container th {
+  padding-left: 0.5rem;
+  padding: 0.5rem;
 }
+
+section.second-container td {
+  padding-left: 0.5rem;
+}
+
+tr {
+  background-color: #f5f5f5;
+}
+
+tr td:first-child {
+  border-bottom-left-radius: 0.3rem;
+  border-top-left-radius: 0.3rem;
+}
+tr td:last-child {
+  border-bottom-right-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+}
+
+tr th:first-child {
+  border-bottom-left-radius: 0.3rem;
+  border-top-left-radius: 0.3rem;
+}
+tr th:last-child {
+  border-bottom-right-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+}
+tr {
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 0.5rem;
+}
+
 /* Table --End */
+
+/* Form operator --Start */
+div.operator-form {
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+
+  background-color: #f5f5f5;
+
+  padding: 1rem;
+  margin: 0.5rem 1rem;
+
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 0.5rem;
+}
+div.operator-form h2 {
+  margin-bottom: 1.2rem;
+}
+div.operator-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+div.operator-form form input {
+  background-color: #fff;
+
+  border: 2px solid #2a2a2a;
+  border-radius: 0.3rem;
+
+  padding: 0.2rem;
+  margin: 0.5rem;
+}
+div.operator-form button {
+  background: rgb(94, 23, 235);
+  background: linear-gradient(
+    100deg,
+    rgba(94, 23, 235, 1) 0%,
+    rgba(56, 182, 255, 1) 100%
+  );
+
+  color: #fff;
+
+  border: 1px;
+  border-radius: 0.3rem;
+
+  padding: 0.5rem 2rem;
+  margin: 0.5rem;
+
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.75);
+
+  transition: 0.5s;
+}
+
+div.operator-form button:hover {
+  background: rgb(94, 23, 235);
+
+  border-radius: 0.3rem;
+}
+/* Form operator --End */
+
 /* Second Seciton --End */
 
 .primary-color {
@@ -93,4 +197,28 @@ td {
 }
 .secomdary-color {
   color: #38b6ff;
+}
+/* td {
+  background-color: #e4e4e4;
+  padding-left: 1.4rem;
+  padding-top: 0.2rem;
+}
+th {
+  padding-left: 1.4rem;
+}
+
+tr {
+  padding-left: 1.4rem;
+  background-color: #f5f5f5;
+  border: solid red 0.2rem;
+  border-radius: 25px;
+} */
+
+.delete-btn {
+  color: rgb(191, 14, 14);
+  border: none;
+}
+.delete-btn:hover {
+  color: rgb(238, 29, 29);
+  border: none;
 }
