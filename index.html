@@ -24,13 +24,27 @@
     <main>
       <!-- First Section --Start -->
       <section class="first-container">
-        <div>
+        <div class="block-content">
           <div>
             <h2>Cash reCeipt</h2>
-            <span class="material-symbols-outlined"> arrow_upward </span>
+            <span class="material-symbols-outlined up-green">
+              arrow_upward
+            </span>
           </div>
-          <div><h2>Cash outFlow</h2></div>
+          <p class="up-green">$ 10000</p>
+        </div>
+        <div class="block-content">
+          <div>
+            <h2>Cash outFlow</h2>
+            <span class="material-symbols-outlined down-red">
+              arrow_downward
+            </span>
+          </div>
+          <p class="down-red">$ -5</p>
+        </div>
+        <div class="block-content">
           <div><h2>Total</h2></div>
+          <p class="total-gold">$ 10005</p>
         </div>
       </section>
       <!-- First Section --End -->
@@ -49,16 +63,16 @@
         </div>
         <!-- Table --End -->
         <!-- Operator Form --Start -->
-        <div>
+        <div class="operator-form-container">
           <div class="operator-form">
-            <h2>Add new transation</h2>
+            <h2>Add new transaction</h2>
             <form id="operator-form">
-              <label for="fdescription">Description</label>
+              <label for="fdescription">Short Description</label>
               <input type="text" id="fdescription" name="fdescription" />
               <label for="lvalue">Value</label>
               <input type="text" id="fvalue" name="fvalue" />
               <label for="ldate">Date</label>
-              <input type="text" id="fdate" name="fdate" />
+              <input type="date" id="fdate" name="fdate" value="20023-03-05" />
               <button type="submit" form="operator-form" value="submit">
                 Insert
               </button>

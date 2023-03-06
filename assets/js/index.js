@@ -1,3 +1,6 @@
+
+/* Table load --Start */
+
 // Retrieve data from local storage when the page loads
 window.addEventListener('load', () => {
   const formData = JSON.parse(localStorage.getItem('formData')) || [];
@@ -28,9 +31,13 @@ window.addEventListener('load', () => {
   });
 });
 
+/* Table load --End */
+
+/* Forms to table --Start */
 
 // Getting the reference of the Table and Form
 
+/* Create Forms --Start */
 const operatorForm = document.querySelector('#operator-form');
 const financeTable = document.querySelector('#finance-table');
 
@@ -44,39 +51,48 @@ operatorForm.addEventListener('submit', (event) => {
   const fdate = document.querySelector('#fdate').value;
 
   //Create a new row for the table with the input values 
-  const newRow = document.createElement('tr');
-  newRow.innerHTML = `
-    <td>${fdescription}</td>
-    <td>$ ${fvalue}</td>
-    <td>${fdate}</td>
-    <td>
-    <button class="delete-btn">
-      <span class="material-symbols-outlined"> cancel </span>
-    </button>
-    </td>`;
+  if (fdescription.value == '' || fvalue.value == '' || fdate == ''){
+    alert('The forms cannot be empty');
 
-  //Add a new row to the table
-  financeTable.appendChild(newRow);
+  }else{
 
-  //Store a new data in local storage
-  const data = { fdescription, fvalue, fdate };
-
-  const formData = JSON.parse(localStorage.getItem('formData')) || [];
-  formData.push(data)
-
-  localStorage.setItem('formData', JSON.stringify(formData));
-
-  operatorForm.reset();
-
-  //Delete button 
-  const deleteBtn = newRow.querySelector('.delete-btn');
-  deleteBtn.addEventListener('click', (event) => {
-    const rowId = event.target.closest('tr').id;
-    const rowIndex = formData.findIndex(data => JSON.stringify(data) === JSON.stringify(formData[rowId]));
-    financeTable.deleteRow(rowIndex);
-    formData.splice(rowIndex, 1);
+    const newRow = document.createElement('tr');
+    newRow.innerHTML = `
+      <td>${fdescription}</td>
+      <td>$ ${fvalue}</td>
+      <td>${fdate}</td>
+      <td>
+      <button class="delete-btn">
+        <span class="material-symbols-outlined"> cancel </span>
+      </button>
+      </td>`;
+  
+    //Add a new row to the table
+    financeTable.appendChild(newRow);
+  
+    //Store a new data in local storage
+    const data = { fdescription, fvalue, fdate };
+  
+    const formData = JSON.parse(localStorage.getItem('formData')) || [];
+    formData.push(data)
+  
     localStorage.setItem('formData', JSON.stringify(formData));
-  });
 
+  }
+  operatorForm.reset();
+  
+/* Create line table Forms --End */
+
+/* Delete line table --Start */
+ 
+const deleteBtn = newRow.querySelector('.delete-btn');
+deleteBtn.addEventListener('click', (event) => {
+  const rowId = event.target.closest('tr').id;
+  const rowIndex = formData.findIndex(data => JSON.stringify(data) === JSON.stringify(formData[rowId]));
+  financeTable.deleteRow(rowIndex);
+  formData.splice(rowIndex, 1);
+  localStorage.setItem('formData', JSON.stringify(formData));
 });
 
+});
+/* Delete line table --End */
